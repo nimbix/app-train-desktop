@@ -1,13 +1,14 @@
-FROM centos:7
+#FROM centos:7
+FROM gcr.io/jarvice-apps/ansys:electronics-2019R3
 
-# image-common with desktop, Tiger VNC
-RUN curl -H 'Cache-Control: no-cache' \
-        https://raw.githubusercontent.com/nimbix/image-common/master/install-nimbix.sh \
-        | bash -s -- --setup-nimbix-desktop
+## image-common with desktop, Tiger VNC
+#RUN curl -H 'Cache-Control: no-cache' \
+#        https://raw.githubusercontent.com/nimbix/image-common/master/install-nimbix.sh \
+#        | bash -s -- --setup-nimbix-desktop
 
-RUN yum install xterm
+#RUN yum install xterm
 
-COPY NAE/AppDef.json /etc/NAE/AppDef.json
+#COPY NAE/AppDef.json /etc/NAE/AppDef.json
 
 COPY scripts/launcher.sh /usr/local/qorvo/launcher.sh
 
