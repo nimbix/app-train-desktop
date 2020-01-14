@@ -2,4 +2,3 @@
 
 xclock &
 exec xterm
-
