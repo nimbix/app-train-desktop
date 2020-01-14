@@ -6,7 +6,7 @@ FROM gcr.io/jarvice-apps/ansys:electronics-2019R3
 #        https://raw.githubusercontent.com/nimbix/image-common/master/install-nimbix.sh \
 #        | bash -s -- --setup-nimbix-desktop
 
-#RUN yum install xterm
+#RUN yum install -y xterm
 
 #COPY NAE/AppDef.json /etc/NAE/AppDef.json
 
