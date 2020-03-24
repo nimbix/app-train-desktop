@@ -38,6 +38,101 @@
           "required": true
         }
       }
+    },
+     "edtshell": {
+      "path": "/usr/lib/jarvice.apps/ansys/edt-shell.sh",
+      "interactive": true,
+      "noconnect": true,
+      "name": "Electronics Desktop (Shell Script)",
+      "machines": [
+        "n[2-9]*",
+        "n[1-9][0-9]*",
+        "ng*[3-9]"
+      ],
+      "description": "Launch a non-interactive Job with a shell script for Electronics Desktop",
+      "parameters": {
+        "ANSYS_ELASTIC_ID": {
+          "required": false,
+          "type": "STR",
+          "variable": true,
+          "name": "Elastic License Server ID",
+          "description": "Enter (or paste) your Cloud License Server ID as shown in the ANSYS Elastic Licensing Portal section.  Please be sure to enter or paste it exactly as it appears, without any leading or trailing spaces."
+        },
+        "ANSYS_ELASTIC_PIN": {
+          "required": false,
+          "type": "STR",
+          "variable": true,
+          "name": "Elastic License Server PIN",
+          "description": "Enter (or paste) your Cloud License Server PIN as shown in the ANSYS Elastic Licensing Portal section.  Please be sure to enter or paste it exactly as it appears, without any leading or trailing spaces."
+        },
+        "-TasksPerNode": {
+          "name": "Tasks Per Node (Default 4)",
+          "min": 1,
+          "max": 64,
+          "required": false,
+          "value": 4,
+          "positional": false,
+          "type": "INT",
+          "description": "If automatic settings is not checked, sets the number of tasks per node"
+        },
+        "-version": {
+          "positional": false,
+          "values": [
+            "2020 R1"
+          ],
+          "mvalues": [
+            "20.1"
+          ],
+          "required": true,
+          "type": "selection",
+          "name": "ANSYS Version"
+        },
+        "-ShellScript": {
+          "positional": false,
+          "name": "Shell Script",
+          "required": true,
+          "type": "FILE",
+          "filter": "*.sh",
+          "description": "Shell Script to run"
+        },
+        "-ProjectInputFile": {
+          "positional": false,
+          "name": "Project Input File",
+          "required": true,
+          "filter": "*.aedt|*.aedtz",
+          "type": "FILE",
+          "description": "Electronics Desktop Project File"
+        },
+        "-AutomaticSettings": {
+          "positional": false,
+          "type": "BOOL",
+          "name": "Use Automatic Settings",
+          "required": true,
+          "value": true,
+          "description": "Use automatic settings for task distribution"
+        },
+        "-EnableDebug": {
+          "positional": false,
+          "name": "Enable Debug Logs",
+          "required": false,
+          "type": "BOOL",
+          "value": false,
+          "description": "Enable additional logging to a temp directory on /data/hfss_debug/<job name>, at selected debug level, 2-6"
+        },
+        "-AnsoftDebugLevel": {
+          "positional": false,
+          "values": [
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "required": false,
+          "type": "selection",
+          "name": "Debug Level"
+        }
+      }
     }
   },
   "image": {
