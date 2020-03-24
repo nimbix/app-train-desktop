@@ -8,6 +8,6 @@ RUN curl -H 'Cache-Control: no-cache' \
 
 #RUN yum install -y xterm
 
-#COPY NAE/AppDef.json /etc/NAE/AppDef.json
+COPY NAE/AppDef.json /etc/NAE/AppDef.json
 
 #COPY scripts/launcher.sh /usr/local/qorvo/launcher.sh
